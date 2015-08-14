@@ -20,7 +20,9 @@ describe User, type: :model do
     expect(user).not_to be_valid
   end
 
-  it 'validates password confirmation' do
-
+  it 'email has to be unique ' do
+    User.create(email: 'test@test.com', password: '12345678', password_confirmation: '12345678')
+    User.create(email: 'test@test.com', password: '12345678', password_confirmation: '12345678')
+    expect(user.email).not_to be_valid
   end
 end
