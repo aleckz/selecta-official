@@ -6,7 +6,6 @@ describe User, type: :model do
     # User.create(email: 'test@test.com',
     #             password: '12345678',
     #             password_confirmation: '12345678')
-    User.create
   end
 
   # it 'authenticates when given a valid email and password' do
@@ -16,7 +15,9 @@ describe User, type: :model do
   # end
 
   it 'validates presence of email' do
+    user = User.new
     expect(user).to have(1).error_on(:email)
+    expect(user).not_to be_valid
   end
 
   it 'validates password confirmation' do
