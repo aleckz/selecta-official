@@ -81,5 +81,5 @@ test:
 production:
   <<: *default
   database: selecta-official_production
-  username: selecta-official
-  password: <%= ENV['SELECTA-OFFICIAL_DATABASE_PASSWORD'] %>
+  # username: selecta-official
+  # password: <%= ENV['SELECTA-OFFICIAL_DATABASE_PASSWORD'] %>
