@@ -31,6 +31,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'capistrano-rails', group: :development
 gem 'sass', '3.2.19'
 gem 'bower-rails'
+gem 'angularjs-rails-resource', '~> 2.0.0'
 
 gem "foreman"
 group :production, :staging do
