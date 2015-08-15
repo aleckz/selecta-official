@@ -1,3 +1,0 @@
-songSearch.controller('SongSearchController', [function() {
-
-}]);
