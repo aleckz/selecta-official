@@ -1,4 +1,14 @@
 
-<div class="view-container">
-  <div ng-view class="view-frame animate-view"></div>
+<div ng-controller="SongSearchController as SSC">
+  <a>{{test}}</a>
+  <form>
+    <input type="text" ng-model="searchTerm">
+    <button ng-click="doSearch()">Search</button>
+  </form>
+  <ul ng-repeat="song in songs">
+    <li>
+      <a ng-href="#/track/{{song.id}}" ng-click="clearList()">{{song.title}}</a>
+      {{song.artwork_id}}
+    </li>
+  </ul>
 </div>
