@@ -32,6 +32,7 @@ module SelectaOfficial
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.assets.paths << Rails.root.join("vendor","assets","bower_components")
     config.assets.paths << Rails.root.join("vendor","assets","bower_components","bootstrap-sass-official","assets","fonts")
+    config.assets.paths << Rails.root.join("vendor","assets","bower_components","angular-resource")
     config.assets.precompile << %r(.*.(?:eot|svg|ttf|woff)$)
     Rails.application.config.assets.precompile += %w( bootstrap-sass-official/assets/fonts/bootstrap/glyphicons-halflings-regular.woff2 )
     Rails.application.config.assets.precompile += %w( bootstrap/glyphicons-halflings-regular.woff2 )
