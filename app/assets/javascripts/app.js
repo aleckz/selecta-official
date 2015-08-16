@@ -14,7 +14,7 @@ var selecta = angular.module('Selecta', ['ngResource','templates','ngRoute']);
 selecta.controller("SongSearchController", ['$scope', '$resource', function($scope, $resource) {
 
   SC.initialize({
-    client_id: ''
+    client_id: SOUNDCLOUD_ID
   });
 
   $scope.songs = [];
