@@ -1,0 +1,12 @@
+<script type="text/ng-template" id="/track.html">
+  <div ng-controller="TrackController as TC">
+    <div class="page-header">
+      <h1 style="color:blue">{{TC.selected_song.title}}</h1>
+      <img src="{{TC.selected_song.artwork_url}}"/>
+      <button ng-click="TC.play()" id='play'>Play</button>
+      <button ng-click="TC.stop()">Pause</button>
+      <button ng-click="TC.like()">Like</button>
+      <button ng-click="TC.find()">Next</button>
+    </div>
+  </div>
+</script>

@@ -8,6 +8,21 @@
   <%= csrf_meta_tags %>
 </head>
 
+<script type="text/ng-template" id="/track.html">
+  <div ng-controller="TrackController as TC">
+    <div class="page-header">
+      <h1 style="color:blue">{{selected_song.title}}</h1>
+      <img src="{{selected_song.artwork_url}}"/>
+      <button ng-click="play()" id='play'>Play</button>
+      <button ng-click="stop()">Pause</button>
+      <button ng-click="like()">Like</button>
+      <button ng-click="find()">Next</button>
+    </div>
+  </div>
+</script>
+
+
+
 <body>
 
   <div id="user_nav">

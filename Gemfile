@@ -35,6 +35,7 @@ gem 'bower-rails'
 gem 'angularjs-rails-resource', '~> 2.0.0'
 gem 'angular-rails-templates'
 gem 'sprockets', '2.12.3'
+gem 'responders', '~> 2.0'
 
 gem "foreman"
 group :production, :staging do
