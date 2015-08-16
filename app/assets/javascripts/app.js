@@ -14,12 +14,10 @@ var selecta = angular.module('Selecta', ['ngResource','templates','ngRoute']);
 selecta.controller("SongSearchController", ['$scope', '$resource', function($scope, $resource) {
 
   SC.initialize({
-    client_id: '42998e70408d9b7fb7ca4e717ba94600'
+    client_id: SOUNDCLOUD_ID
   });
 
   $scope.songs = [];
-
-  $scope.test = "This is a test";
 
   $scope.doSearch = function(){
     if ($scope.searchTerm !== '') {
