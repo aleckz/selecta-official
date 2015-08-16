@@ -5,10 +5,9 @@
     <input type="text" ng-model="searchTerm" name="searchstring">
     <button ng-click="doSearch()">Search</button>
   </form>
-  <ul ng-repeat="song in songs">
-    <li>
-      <a ng-href="#/track/{{song.id}}" ng-click="clearList()">{{song.title}}</a>
-      {{song.artwork_id}}
-    </li>
-  </ul>
+</div>
+
+
+<div ng-view>
+
 </div>

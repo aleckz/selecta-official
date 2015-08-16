@@ -19,8 +19,6 @@ selecta.controller("SongSearchController", ['$scope', '$resource', function($sco
 
   $scope.songs = [];
 
-  $scope.test = "This is a test";
-
   $scope.doSearch = function(){
     if ($scope.searchTerm !== '') {
       return SC.get('http://api.soundcloud.com/tracks', { q: $scope.searchTerm }, function(tracks) {
