@@ -9,7 +9,7 @@ function($stateProvider, $urlRouterProvider) {
 
       .state('track', {
         url: '/track/:songId',
-        templateUrl: "/track.html",
+        templateUrl: "track.html",
         controller: 'TrackController'
       });
 

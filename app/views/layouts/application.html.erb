@@ -8,7 +8,7 @@
   <%= csrf_meta_tags %>
 </head>
 
-<script type="text/ng-template" id="/track.html">
+<script type="text/ng-template" id="track.html">
   <div ng-controller="TrackController as TC">
     <div class="page-header">
       <h1 style="color:blue">{{selected_song.title}}</h1>
@@ -22,12 +22,11 @@
 </script>
 
 
-
 <body>
 
   <div id="user_nav">
-    <% if current_user %>
-      Logged in as <%= current_user.email %>.
+    <% if logged_in? %>
+      Welcome, <%= current_user.email %>
       <%= link_to "Log out", log_out_path %>
     <% else %>
       <%= link_to "Sign up", sign_up_path %> or
