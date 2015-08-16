@@ -6,8 +6,14 @@ Rails.application.routes.draw do
 
   root to: "songs#index"
 
+  resources :songs do
+    collection do
+      get :find
+    end
+  end
 
-  resources :songs
+
+
   resources :users
   resources :sessions
 

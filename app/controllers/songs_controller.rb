@@ -9,12 +9,24 @@ class SongsController < ApplicationController
 
   def create
     @usersong = current_user.songs.create(soundcloud_id: song_params)
+    if @usersong.save
+      render json: { :success => true }
+    end
   end
 
 
   def find
     @oldsong = Song.find_by(soundcloud_id: song_params)
-    @newsong = '12345678'
-    render :json => { song: @newsong }
+    @nextsong = "9851200"
+    render :json => { soundcloud_id: @nextsong }
   end
+
+
+
+  private
+
+    def song_params
+      params.require(:soundcloud_id)
+    end
+
 end
