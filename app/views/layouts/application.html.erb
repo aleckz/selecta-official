@@ -33,9 +33,13 @@
 </script>
 
 <script type="text/ng-template" id="likeHistory.html">
-
-
-
+  </div>
+    <ul ng-repeat="like in likes">
+      <li>
+        <a ng-href="#/track/{{like.id}}" >{{like.title}}</a>
+      </li>
+    </ul>
+  </div>
 </script>
 
 <body>
