@@ -23,6 +23,12 @@ function($stateProvider, $urlRouterProvider) {
         url: '/track/:songId',
         templateUrl: "track.html",
         controller: 'TrackController'
+      })
+
+      .state('likeHistory', {
+        url: '/likeHistory/:userId',
+        templateUrl: "likeHistory.html",
+        controller: 'LikeHistoryController'
       });
 
       $urlRouterProvider.otherwise('/');

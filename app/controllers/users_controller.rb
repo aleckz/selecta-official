@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+
+  respond_to :html, :json
+
   def new
     @user = User.new
   end
@@ -12,6 +15,12 @@ class UsersController < ApplicationController
     else
       render "new"
     end
+  end
+
+  def find
+    user = User.find(params[:user])
+    @songs = user.songs
+    render :json => { songs: @songs }
   end
 
   def user_params

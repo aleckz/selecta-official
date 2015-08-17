@@ -14,7 +14,6 @@ class SongsController < ApplicationController
     end
   end
 
-
   def find
     @oldsong = Song.find_by(soundcloud_id: song_params)
     songarray = []
