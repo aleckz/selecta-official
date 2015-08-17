@@ -12,7 +12,7 @@ function($stateProvider, $urlRouterProvider) {
         templateUrl: "home.html",
         controller: 'SongSearchController'
       })
-      
+
       .state('track', {
         url: '/track/:songId',
         templateUrl: "track.html",
