@@ -3,6 +3,7 @@
 <head>
   <title>SelectaOfficial</title>
   <script src="https://connect.soundcloud.com/sdk.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -22,29 +23,12 @@
 </script>
 
 <script type="text/ng-template" id="home.html">
-<div class="featurette">
-   <div class="featurette-inner text-center">
-      <form role="form" class="search">
-         <h3 class="no-margin-top h1">Selecta</h3>
-         <div class="input-group input-group-lg">
-            <input type="text" ng-model="searchTerm" name="searchstring" class="form-control" placeholder="Start discovering">
-            <span class="input-group-btn">
-            <button ng-click="doSearch()" class="btn btn-danger">Search</button>
-            </span>
-         </div>
-         <!-- /input-group -->
-      </form>
-      <!-- /.max-width on this form -->
-
-   </div>
-   <!-- /.featurette-inner (display:table-cell) -->
-
-   <ul ng-repeat="song in songs">
-     <li>
-       <a ng-href="#/track/{{song.id}}" ng-click="clearList()">{{song.title}}</a>
-     </li>
-   </ul>
- </div>
+  <h2 data-typer-targets="Hello,Hi,Hola,Hallo,Haai,Ola,Kaixo,Moni,Aloha,Bonjour,Ciao,Hej">Welcome</h2>
+  <script>
+    $(function () {
+      $('[data-typer-targets]').typer();
+    });
+  </script>
 </script>
 
 
