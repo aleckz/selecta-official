@@ -3,7 +3,9 @@ song = false;
 selecta.controller('TrackController', ["$resource", "$location", "$scope", "$window", 'FindSong', 'SongsUser', "$stateParams","$timeout", "$state", "$rootScope",function($resource, $location, $scope, $window, FindSong, SongsUser, $stateParams, $timeout, $state, $rootScope){
   $scope.songId = $stateParams.songId;
   var playing = false;
-  var nextsong = false;
+  var nextsong = 'hello';
+
+
 
   SC.initialize({
     client_id: SOUNDCLOUD_ID
@@ -15,17 +17,18 @@ selecta.controller('TrackController', ["$resource", "$location", "$scope", "$win
   });
 
   $scope.next = function() {
-    console.log('next button work');
+    console.log(nextsong);
     test = FindSong.find({soundcloud_id: $scope.selected_song.id});
     console.log(test);
     test.$promise.then(function(song){
-    nextsong = song.soundcloud_id;
-    console.log(nextsong);
-    });
-    $state.go('track', {songId: nextsong});
-    $rootScope.$on('$stateChangeSuccess',function(event, toState, toParams, fromState, fromParams){
-      $scope.songId = toParams.songId;
-      $scope.play();
+      nextsong = song.soundcloud_id;
+      console.log(nextsong);
+    }).then(function(){
+      $state.go('track', {songId: nextsong });
+      $rootScope.$on('$stateChangeSuccess',function(event, toState, toParams, fromState, fromParams){
+        $scope.songId = toParams.songId;
+        $scope.play();
+      });
     });
   };
 

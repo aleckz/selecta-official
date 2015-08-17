@@ -8,22 +8,26 @@ class SongsController < ApplicationController
   end
 
   def create
-    @usersong = current_user.songs.create(soundcloud_id: song_params)
-    if @usersong.save
-      render json: { :success => true }
+    if Song.find_by(soundcloud_id: song_params)
+      current_user.songs << Song.find_by(soundcloud_id: song_params)
+    else
+      @usersong = current_user.songs.create(soundcloud_id: song_params)
     end
+      render json: { :success => true }
   end
 
 
   def find
-    @oldsong = Song.find_by(soundcloud_id: song_params)
+    oldsong = Song.find_by(soundcloud_id: song_params)
     songarray = []
     count = Hash.new(0)
-    @oldsong.users.to_a.each {|user| user.songs.each{|song| songarray << song if song.id != 1} }
+    oldsong_users = oldsong.users.where('id != ?', current_user.id).to_a
+    oldsong_users_songs = oldsong_users.map{|user| user.songs}.flatten
+    oldsong_users_songs_wo_old_song = oldsong_users_songs.reject{|song| (song.soundcloud_id == song_params.to_i)}
+    oldsong_users_songs_wo_old_song.each {|song| songarray << song}
     songarray.each {|song| count[song] +=1}
     @nextsong = count.sort_by {|k,v| v}.last
-    byebug
-    render :json => { soundcloud_id: @nextsong.soundcloud_id }
+    render :json => { soundcloud_id: @nextsong[0].soundcloud_id }
   end
 
 
