@@ -1,29 +1,31 @@
 <div ng-controller="SongSearchController">
   <div class="backgroundimageStyling">
-  <div class="navbar navbar-default navbar-fixed-top">
+  <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
           <a class="navbar-brand" href="#">Selecta</a>
         </div>
         <form class="navbar-form navbar-left" role="search">
           <div class="form-group">
             <input type="text" ng-model="searchTerm" name="searchstring" class="form-control" placeholder="Start discovering...">
           </div>
-          <button ng-click="doSearch()" type="submit" class="btn btn-default">Submit</button>
+          <button ng-click="doSearch()" type="submit" class="btn btn-default">Search</button>
         </form>
         <div class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
+          <ul class="nav navbar-nav pull-right">
             <li><a href="#about">Like History</a></li>
-            <li><a href="#about">Sign up</a></li>
-            <li><a href="#about">Log in</a></li>
+            <% if logged_in? %>
+              <li><%= link_to "Log out", log_out_path %></li>
+            <% else %>
+              <li><%= link_to "Sign up", sign_up_path %></li>
+              <li><%= link_to "Log in", log_in_path %></li>
+            <% end %>
           </ul>
         </div>
       </div>
+    </div>
+    <div>
+       <ui-view></ui-view>
     </div>
     <ul ng-repeat="song in songs">
       <li>
@@ -31,8 +33,4 @@
       </li>
     </ul>
   </div>
-</div>
-
-<div>
-   <ui-view></ui-view>
 </div>
