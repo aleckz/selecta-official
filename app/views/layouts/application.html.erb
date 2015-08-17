@@ -17,32 +17,33 @@
 
 <script type="text/ng-template" id="track.html">
   <div ng-controller="TrackController as TC">
-    <div class="page-header">
-      <h1 style="color:blue">{{selected_song.title}}</h1>
-      <img ng-src="{{ selected_song.artwork_url }}"/>
-      <button ng-click="play()" id='play'>Play</button>
-      <button ng-click="stop()">Pause</button>
-      <button ng-click="like()">Like</button>
-      <button ng-click="next()">Next</button>
-    </div>
+    <h1 style="color:blue">{{selected_song.title}}</h1>
+    <img ng-src="{{ selected_song.artwork_url }}"/>
+    </br>
+    <button class="btn btn-default" ng-click="play()" id='play'>Play</button>
+    <button class="btn btn-default" ng-click="stop()">Pause</button>
+    <button class="btn btn-default" ng-click="like()">Like</button>
+    <button class="btn btn-default" ng-click="next()">Next</button>
   </div>
 </script>
 
 <script type="text/ng-template" id="home.html">
-  <h2 data-typer-targets="Hello,Hi,Hola,Hallo,Haai,Ola,Kaixo,Moni,Aloha,Bonjour,Ciao,Hej">Welcome</h2>
-  <script>
-    $(function () {
-      $('[data-typer-targets]').typer();
-    });
-  </script>
+  <div class="container-fluid">
+    <h2 data-typer-targets="Hello,Hi,Hola,Hallo,Haai,Ola,Kaixo,Moni,Aloha,Bonjour,Ciao,Hej">Welcome</h2>
+    <script>
+      $(function () {
+        $('[data-typer-targets]').typer();
+      });
+    </script>
+  </div>
 </script>
 
 <script type="text/ng-template" id="results.html"></script>
 
 <script type="text/ng-template" id="likeHistory.html">
   </div>
-    <ul ng-repeat="like in likes">
-      <li>
+    <ul class="list-group" ng-repeat="like in likes">
+      <li class="list-group-item">
         <a ng-href="#/track/{{like.id}}" >{{like.title}}</a>
       </li>
     </ul>

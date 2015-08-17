@@ -3,7 +3,7 @@
   <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
-          <a class="navbar-brand" href="#">Selecta</a>
+          <a class="navbar-brand" href="/#/">Selecta</a>
         </div>
         <form class="navbar-form navbar-left" role="search">
           <div class="form-group">
@@ -24,16 +24,17 @@
         </div>
       </div>
     </div>
-    <div>
+    <div class="center-block">
        <ui-view></ui-view>
     </div>
-    <ul ng-repeat="song in songs">
-      <li>
-        <a ng-href="#/track/{{song.id}}" ng-click="clearList()">{{song.title}}</a>
-      </li>
-    </ul>
+    <div class="container-fluid">
+      <div class="list-group">
+        <ul ng-repeat="song in songs">
+          <li class="list-group-item">
+            <a ng-href="#/track/{{song.id}}" ng-click="clearList()">{{song.title}}</a>
+          </li>
+        </ul>
+      </div>
+    </div>
   </div>
 </div>
-
-
-
