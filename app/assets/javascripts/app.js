@@ -7,10 +7,18 @@ function($stateProvider, $urlRouterProvider) {
 
     $stateProvider
 
+      .state('home',{
+        url: '/',
+        templateUrl: "home.html",
+        controller: 'SongSearchController'
+      })
+      
       .state('track', {
         url: '/track/:songId',
-        templateUrl: "/track.html",
+        templateUrl: "track.html",
         controller: 'TrackController'
       });
+
+      $urlRouterProvider.otherwise('/');
 
   }]);
