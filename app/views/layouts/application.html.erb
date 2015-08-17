@@ -8,6 +8,7 @@
   <%= csrf_meta_tags %>
 </head>
 
+
 <script type="text/ng-template" id="track.html">
   <div ng-controller="TrackController as TC">
     <div class="page-header">
@@ -21,9 +22,18 @@
   </div>
 </script>
 
+<script type="text/ng-template" id="home.html">
+
+
+</script>
 
 <body>
-
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
   <div id="user_nav">
     <% if logged_in? %>
       Welcome, <%= current_user.email %>
