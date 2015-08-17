@@ -21,7 +21,7 @@
  background-size: cover;
  background-repeat: no-repeat;
  }
-/* ------ featurette */
+
 .backgroundimageStyling {
     display: table;
     min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
@@ -31,4 +31,13 @@
     width: 100%;
     height: 30%; /* set a pixel height and then remove the body,html height */
     vertical-align: middle;
+}
+
+@font-face {
+  font-family: 'alek';
+  src: 'app/assets/fonts/alek.otf';
+}
+
+#test {
+  font-family: 'alek';
 }
