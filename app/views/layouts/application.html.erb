@@ -3,6 +3,7 @@
 <head>
   <title>SelectaOfficial</title>
   <script src="https://connect.soundcloud.com/sdk.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -23,26 +24,25 @@
 </script>
 
 <script type="text/ng-template" id="home.html">
+  <h2 data-typer-targets="Hello,Hi,Hola,Hallo,Haai,Ola,Kaixo,Moni,Aloha,Bonjour,Ciao,Hej">Welcome</h2>
+  <script>
+    $(function () {
+      $('[data-typer-targets]').typer();
+    });
+  </script>
+</script>
 
-
+<script type="text/ng-template" id="likeHistory.html">
+  </div>
+    <ul ng-repeat="like in likes">
+      <li>
+        <a ng-href="#/track/{{like.id}}" >{{like.title}}</a>
+      </li>
+    </ul>
+  </div>
 </script>
 
 <body>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <div id="user_nav">
-    <% if logged_in? %>
-      Welcome, <%= current_user.email %>
-      <%= link_to "Log out", log_out_path %>
-    <% else %>
-      <%= link_to "Sign up", sign_up_path %> or
-      <%= link_to "log in", log_in_path %>
-    <% end %>
-  </div>
 
 <%= notice %>
 <%= yield %>
