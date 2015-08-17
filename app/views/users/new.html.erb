@@ -1,29 +1,51 @@
-<h1>Selecta Sign up</h1>
+<div class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="/">Selecta</a>
+			</div>
+			<div class="collapse navbar-collapse">
+				<ul class="nav navbar-nav pull-right">
+					<li><a href="#about">Like History</a></li>
+					<% if logged_in? %>
+						<li><%= link_to "Log out", log_out_path %></li>
+					<% else %>
+						<li><%= link_to "Sign up", sign_up_path %></li>
+						<li><%= link_to "Log in", log_in_path %></li>
+					<% end %>
+				</ul>
+			</div>
+		</div>
+	</div>
 
-<%= form_for @user do |f| %>
-  <% if @user.errors.any? %>
-  <div class="errors">
-    <h2>Invalid Sign-up Credentials</h2>
-    <ul>
-      <% for message in @user.errors.full_messages %>
-      <li><%= message %></li>
-      <% end %>
-    </ul>
-  </div>
-  <% end %>
 
-<p class="email">
-  <%= f.label :email %><br>
-  <%= f.text_field :email %>
-</p>
-<p class="password">
-  <%= f.label :password %><br>
-  <%= f.password_field :password %>
-</p>
-<p class="password_confirmation">
-  <%= f.label :password_confirmation %><br>
-  <%= f.password_field :password_confirmation %>
-</p>
+<div class="backgroundimageStyling">
+	<div class="loginmodal-container">
+		<h1>Selecta Sign up</h1>
 
-<p class="button"><%= f.submit "Sign Up"%></p>
-<% end %>
+		<%= form_for @user do |f| %>
+		  <% if @user.errors.any? %>
+		  <div class="errors">
+		    <h2>Invalid Sign-up Credentials</h2>
+		    <ul>
+		      <% for message in @user.errors.full_messages %>
+		      <li><%= message %></li>
+		      <% end %>
+		    </ul>
+		  </div>
+		  <% end %>
+
+		<p class="email">
+		  <%= f.text_field :email, :placeholder => "Email" %>
+		</p>
+		<p class="password">
+		  <%= f.password_field :password, :placeholder => "Password" %>
+		</p>
+		<p class="password_confirmation">
+		  <%= f.password_field :password_confirmation, :placeholder => "Confirm Password" %>
+		</p>
+
+		<p class="button"><%= f.submit "Sign Up", :class => "login loginmodal-submit"%></p>
+		<% end %>
+
+	</div>
+</div>
