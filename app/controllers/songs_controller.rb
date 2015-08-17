@@ -17,8 +17,12 @@ class SongsController < ApplicationController
 
   def find
     @oldsong = Song.find_by(soundcloud_id: song_params)
-    @nextsong = "9851200"
-    render :json => { soundcloud_id: @nextsong }
+    songarray = []
+    count = Hash.new(0)
+    @oldsong.users.to_a.each {|user| user.songs.each{|song| songarray << song if song.id != 1} }
+    songarray.each {|song| count[song] +=1}
+    @nextsong = count.sort_by {|k,v| v}.last
+    render :json => { soundcloud_id: @nextsong.soundcloud_id }
   end
 
 

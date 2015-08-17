@@ -9,11 +9,12 @@
   <%= csrf_meta_tags %>
 </head>
 
+
 <script type="text/ng-template" id="track.html">
   <div ng-controller="TrackController as TC">
     <div class="page-header">
       <h1 style="color:blue">{{selected_song.title}}</h1>
-      <img src="{{selected_song.artwork_url}}"/>
+      <img ng-src="{{ selected_song.artwork_url }}"/>
       <button ng-click="play()" id='play'>Play</button>
       <button ng-click="stop()">Pause</button>
       <button ng-click="like()">Like</button>
@@ -31,9 +32,13 @@
   </script>
 </script>
 
-
 <body>
-
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
   <div id="user_nav">
     <% if logged_in? %>
       Welcome, <%= current_user.email %>
