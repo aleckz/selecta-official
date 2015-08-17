@@ -22,7 +22,6 @@ class SongsController < ApplicationController
     @oldsong.users.to_a.each {|user| user.songs.each{|song| songarray << song if song.id != 1} }
     songarray.each {|song| count[song] +=1}
     @nextsong = count.sort_by {|k,v| v}.last
-    byebug
     render :json => { soundcloud_id: @nextsong.soundcloud_id }
   end
 

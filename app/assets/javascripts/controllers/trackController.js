@@ -22,7 +22,7 @@ selecta.controller('TrackController', ["$resource", "$location", "$scope", "$win
     nextsong = song.soundcloud_id;
     console.log(nextsong);
     });
-    $state.go('track', {songId: 43891342});
+    $state.go('track', {songId: nextsong});
     $rootScope.$on('$stateChangeSuccess',function(event, toState, toParams, fromState, fromParams){
       $scope.songId = toParams.songId;
       $scope.play();
