@@ -10,3 +10,9 @@ selecta.factory('SongsUser', ['$resource',function($resource){
   create: { method: 'POST' }
   });
 }]);
+
+selecta.factory('UserLikes', ['$resource', function($resource){
+  return $resource('/users/find.json', {}, {
+    find: { method: 'GET'}
+  });
+}]);

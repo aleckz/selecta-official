@@ -12,9 +12,12 @@ Rails.application.routes.draw do
     end
   end
 
-
-
-  resources :users
+  resources :users do
+    collection do
+      get :find
+    end
+  end
+  
   resources :sessions
 
   # The priority is based upon order of creation: first created -> highest priority.
