@@ -68,11 +68,6 @@ selecta.controller('TrackController', ["$resource", "$location", "$scope", "$win
     SongsUser.create({soundcloud_id: $scope.songId});
   };
 
-  $scope.next2 = function() {
-    SC.get("/tracks/63848640", function(tracks){
-      $scope.newsong = tracks;
-      $scope.$apply();
-    });
-  };
+
 
 }]);

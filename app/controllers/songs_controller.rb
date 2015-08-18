@@ -9,9 +9,9 @@ class SongsController < ApplicationController
 
   def create
     if Song.find_by(soundcloud_id: song_params)
-      current_user.songs << Song.find_by(soundcloud_id: song_params)
+      current_user.songs << Song.find_by(soundcloud_id: song_params) unless current_user.songs.includes(:songs).where('soundcloud_id = ?', song_params)
     else
-      @usersong = current_user.songs.create(soundcloud_id: song_params)
+      current_user.songs.create(soundcloud_id: song_params)
     end
       render json: { :success => true }
   end
