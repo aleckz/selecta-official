@@ -6,7 +6,7 @@ feature "Searching for songs", js: true do
     fill_in "searchstring", with: "eminem"
     click_on "Search"
 
-    expect(page).to have_content("Without Me")
+    expect(page).to have_content("Eminem - Without Me")
   end
 
   scenario "User signs up" do
