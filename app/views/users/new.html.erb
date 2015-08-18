@@ -1,4 +1,6 @@
-<div class="navbar navbar-inverse navbar-fixed-top">
+<div class="backgroundimageStyling">
+	<div class="layer"></div>
+	<div class="navbar navbar-inverse navbar-fixed-top">
 		<div class="container">
 			<div class="navbar-header">
 				<a class="navbar-brand" href="/">Selecta</a>
@@ -16,35 +18,39 @@
 		</div>
 	</div>
 
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="loginmodal-container">
+					<h1>Selecta Sign up</h1>
 
-<div class="backgroundimageStyling">
-	<div class="loginmodal-container">
-		<h1>Selecta Sign up</h1>
+					<%= form_for @user do |f| %>
+						<% if @user.errors.any? %>
+						<div class="errors">
+							<h2>Invalid Sign-up Credentials</h2>
+							<ul>
+								<% for message in @user.errors.full_messages %>
+								<li><%= message %></li>
+								<% end %>
+							</ul>
+						</div>
+						<% end %>
 
-		<%= form_for @user do |f| %>
-		  <% if @user.errors.any? %>
-		  <div class="errors">
-		    <h2>Invalid Sign-up Credentials</h2>
-		    <ul>
-		      <% for message in @user.errors.full_messages %>
-		      <li><%= message %></li>
-		      <% end %>
-		    </ul>
-		  </div>
-		  <% end %>
+					<p class="email">
+						<%= f.text_field :email, :placeholder => "Email" %>
+					</p>
+					<p class="password">
+						<%= f.password_field :password, :placeholder => "Password" %>
+					</p>
+					<p class="password_confirmation">
+						<%= f.password_field :password_confirmation, :placeholder => "Confirm Password" %>
+					</p>
 
-		<p class="email">
-		  <%= f.text_field :email, :placeholder => "Email" %>
-		</p>
-		<p class="password">
-		  <%= f.password_field :password, :placeholder => "Password" %>
-		</p>
-		<p class="password_confirmation">
-		  <%= f.password_field :password_confirmation, :placeholder => "Confirm Password" %>
-		</p>
+					<p class="button"><%= f.submit "Sign Up", :class => "login loginmodal-submit"%></p>
+					<% end %>
 
-		<p class="button"><%= f.submit "Sign Up", :class => "login loginmodal-submit"%></p>
-		<% end %>
-
+				</div>
+			</div>
+		</div>
 	</div>
 </div>
