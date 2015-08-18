@@ -28,20 +28,22 @@
 </script>
 
 <script type="text/ng-template" id="home.html">
-  <div class="container-fluid">
-    <h2 data-typer-targets="Hello,Hi,Hola,Hallo,Haai,Ola,Kaixo,Moni,Aloha,Bonjour,Ciao,Hej">Welcome</h2>
-    <script>
-      $(function () {
-        $('[data-typer-targets]').typer();
-      });
-    </script>
+  <div class="">
+    <div class="typer">
+      <h2 data-typer-targets="Hello,Hi,Hola,Hallo,Haai,Ola,Kaixo,Moni,Aloha,Bonjour,Ciao,Hej">Welcome</h2>
+      <script>
+        $(function () {
+          $('[data-typer-targets]').typer();
+        });
+      </script>
+    </div>
   </div>
 </script>
 
 <script type="text/ng-template" id="results.html"></script>
 
 <script type="text/ng-template" id="likeHistory.html">
-  </div>
+  <div>
     <ul class="list-group" ng-repeat="like in likes">
       <li class="list-group-item">
         <a ng-href="#/track/{{like.id}}" >{{like.title}}</a>
