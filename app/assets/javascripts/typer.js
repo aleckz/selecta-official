@@ -14,7 +14,7 @@ String.prototype.rightChars = function(n){
   var
     options = {
       highlightSpeed    : 20,
-      typeSpeed         : 100,
+      typeSpeed         : 120,
       clearDelay        : 500,
       typeDelay         : 200,
       clearOnHighlight  : true,
@@ -37,7 +37,7 @@ String.prototype.rightChars = function(n){
 
   spanWithColor = function(color, backgroundColor) {
     if (color === 'rgba(0, 0, 0, 0)') {
-      color = 'rgb(255, 255, 255)';
+      color = 'rgb(181, 177, 177)';
     }
 
     return $('<span></span>')

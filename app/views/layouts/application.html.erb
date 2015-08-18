@@ -4,6 +4,16 @@
   <title>SelectaOfficial</title>
   <script src="https://connect.soundcloud.com/sdk.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.13.1/jquery.validate.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -12,30 +22,41 @@
 
 <script type="text/ng-template" id="track.html">
   <div ng-controller="TrackController as TC">
-    <div class="page-header">
-      <h1 style="color:blue">{{selected_song.title}}</h1>
-      <img ng-src="{{ selected_song.artwork_url }}"/>
-      <button ng-click="play()" id='play'>Play</button>
-      <button ng-click="stop()">Pause</button>
-      <button ng-click="like()">Like</button>
-      <button ng-click="next()">Next</button>
+    <div class="player">
+    <div class="container-fluid text-center">
+    <div class="row">
+      <h1>{{selected_song.title}}</h1>
+      <img ng-src="{{ selected_song.artwork_url.replace('large','t500x500') }}"/>
+      </br>
+      <button class="btn btn-default" ng-click="like()" id='Like'><span class="glyphicon glyphicon-heart" aria-hidden="true"></span></button>
+      <button class="btn btn-default" ng-click="play()" id='Play'><span class="glyphicon glyphicon-play" aria-hidden="true"></span></button>
+      <button class="btn btn-default" ng-click="stop()" id='Pause'><span class="glyphicon glyphicon-pause" aria-hidden="true"></span></button>
+      <button class="btn btn-default" ng-click="next()" id='Next'><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></button>
+    </div>
+    </div>
     </div>
   </div>
 </script>
 
 <script type="text/ng-template" id="home.html">
-  <h2 data-typer-targets="Hello,Hi,Hola,Hallo,Haai,Ola,Kaixo,Moni,Aloha,Bonjour,Ciao,Hej">Welcome</h2>
-  <script>
-    $(function () {
-      $('[data-typer-targets]').typer();
-    });
-  </script>
+  <div class="">
+    <div class="typer">
+      <h2 data-typer-targets="We selecta song for you,Hola,Haai,Ola,Kaixo,Aloha,Bonjour,Ciao,Hej">Selecta</h2>
+      <script>
+        $(function () {
+          $('[data-typer-targets]').typer();
+        });
+      </script>
+    </div>
+  </div>
 </script>
 
+<script type="text/ng-template" id="results.html"></script>
+
 <script type="text/ng-template" id="likeHistory.html">
-  </div>
-    <ul ng-repeat="like in likes">
-      <li>
+  <div>
+    <ul class="list-group" ng-repeat="like in likes">
+      <li class="list-group-item">
         <a ng-href="#/track/{{like.id}}" >{{like.title}}</a>
       </li>
     </ul>

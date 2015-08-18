@@ -1,13 +1,39 @@
-<h1>Selecta Log in</h1>
+<div class="backgroundimageStyling">
+	<div class="layer"></div>
+	<div class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="/">Selecta</a>
+			</div>
+			<div class="collapse navbar-collapse">
+				<ul class="nav navbar-nav pull-right">
+					<% if logged_in? %>
+						<li><%= link_to "Log out", log_out_path %></li>
+					<% else %>
+						<li><%= link_to "Sign up", sign_up_path %></li>
+						<li><%= link_to "Log in", log_in_path %></li>
+					<% end %>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="loginmodal-container">
+			    <h1>Selecta Log in</h1>
 
-<%= form_tag sessions_path do %>
-  <p>
-    <%= label_tag :email %><br />
-    <%= text_field_tag :email, params[:email] %>
-  </p>
-  <p>
-    <%= label_tag :password %><br />
-    <%= password_field_tag :password %>
-  </p>
-  <p class="button"><%= submit_tag "Log in" %></p>
-<% end %>
+			    <%= form_tag sessions_path do %>
+			      <p>
+			        <%= text_field_tag :email, params[:email], :placeholder => "Email" %>
+			      </p>
+			      <p>
+			        <%= password_field_tag :password %>
+			      </p>
+			      <p class="button"><%= submit_tag "Log in", :class => "login loginmodal-submit" %></p>
+			    <% end %>
+			  </div>
+			</div>
+		</div>
+	</div>
+</div>

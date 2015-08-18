@@ -14,7 +14,7 @@ feature "Searching for songs", js: true do
       click_link 'Sign up'
       fill_in 'Email', with: "testuser@test.com"
       fill_in 'Password', with: "password"
-      fill_in 'Password confirmation', with: "password"
+      fill_in 'Confirm Password', with: "password"
       click_on "Sign Up"
       expect(page).to have_content("Welcome to Selecta")
       expect(User.count).to eq(1)

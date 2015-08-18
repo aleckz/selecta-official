@@ -13,6 +13,12 @@ function($stateProvider, $urlRouterProvider) {
         controller: 'SongSearchController'
       })
 
+      .state('empty', {
+        url: '/results',
+        templateUrl: "results.html",
+        controller: 'SongSearchController'
+      })
+
       .state('track', {
         url: '/track/:songId',
         templateUrl: "track.html",

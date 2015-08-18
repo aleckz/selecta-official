@@ -1,15 +1,16 @@
 <div ng-controller="SongSearchController">
   <div class="backgroundimageStyling">
-  <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="layer"></div>
+    <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
-          <a class="navbar-brand" href="#">Selecta</a>
+          <a class="navbar-brand" href="/#/">Selecta</a>
         </div>
-        <form class="navbar-form navbar-left" role="search">
+        <form class="navbar-form navbar-left">
           <div class="form-group">
             <input type="text" ng-model="searchTerm" name="searchstring" class="form-control" placeholder="Start discovering...">
           </div>
-          <button ng-click="doSearch()" type="submit" class="btn btn-default">Search</button>
+          <a ng-href="#/results"><button ng-click="doSearch()" type="submit" class="btn btn-default" id="Search">Find</button></a>
         </form>
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav pull-right">
@@ -24,16 +25,20 @@
         </div>
       </div>
     </div>
-    <div>
-       <ui-view></ui-view>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <ui-view></ui-view>
+        </div>
+      </div>
+    <div class="container-fluid">
+      <div class="list-group">
+        <ul ng-repeat="song in songs">
+          <li class="list-group-item">
+            <a ng-href="#/track/{{song.id}}" ng-click="clearList()">{{song.title}}</a>
+          </li>
+        </ul>
+      </div>
     </div>
-    <ul ng-repeat="song in songs">
-      <li>
-        <a ng-href="#/track/{{song.id}}" ng-click="clearList()">{{song.title}}</a>
-      </li>
-    </ul>
   </div>
 </div>
-
-
-
