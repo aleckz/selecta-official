@@ -8,8 +8,9 @@ class SongsController < ApplicationController
   end
 
   def create
-    if Song.find_by(soundcloud_id: song_params)
-      current_user.songs << Song.find_by(soundcloud_id: song_params) unless current_user.songs.includes(:songs).where('soundcloud_id = ?', song_params)
+    liked_song = Song.find_by(soundcloud_id: song_params)
+    if liked_song
+      current_user.songs << liked_song unless current_user.songs.find_by(soundcloud_id: liked_song.soundcloud_id)
     else
       current_user.songs.create(soundcloud_id: song_params)
     end

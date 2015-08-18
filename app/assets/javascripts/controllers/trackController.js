@@ -1,8 +1,8 @@
 song = false;
+playing = false;
 
 selecta.controller('TrackController', ["$resource", "$location", "$scope", "$window", 'FindSong', 'SongsUser', "$stateParams","$timeout", "$state", "$rootScope",function($resource, $location, $scope, $window, FindSong, SongsUser, $stateParams, $timeout, $state, $rootScope){
   $scope.songId = $stateParams.songId;
-  var playing = false;
   var nextsong = 'hello';
 
 
