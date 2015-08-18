@@ -6,11 +6,11 @@
         <div class="navbar-header">
           <a class="navbar-brand" href="/#/">Selecta</a>
         </div>
-        <form class="navbar-form navbar-left" role="search">
+        <form class="navbar-form navbar-left">
           <div class="form-group">
-            <input type="text" ng-model="searchTerm" name="searchstring" class="form-control searchbar" placeholder="Start discovering...">
+            <input type="text" ng-model="searchTerm" name="searchstring" class="form-control" placeholder="Start discovering...">
           </div>
-          <a ng-href="#/results"><button ng-click="doSearch()" type="submit" class="btn btn-default">Search</button></a>
+          <a ng-href="#/results"><button ng-click="doSearch()" type="submit" class="btn btn-default" id="Search">Find</button></a>
         </form>
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav pull-right">
