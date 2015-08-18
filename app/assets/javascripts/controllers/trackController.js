@@ -48,6 +48,7 @@ selecta.controller('TrackController', ["$resource", "$location", "$scope", "$win
           song = temp;
           if (!playing) {
             song.play();
+            playing = true;
           }
         }
       } else {
