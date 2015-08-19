@@ -118,12 +118,18 @@
   width: 100%;
 }
 
+h1 {
+ font-family: 'AlekRegular';
+ font-size: 600%;
+ color: #ffffff;
+}
+
 .typer {
   color: #ffffff;
 }
 
 .typer h2 {
-  font-size: 600%;
+  font-size: 200%;
 }
 
 .layer {
@@ -143,4 +149,14 @@
 .player img {
   width: 70%;
   padding-bottom: 3%;
+}
+
+@font-face {
+  font-family: 'AlekRegular';
+  src: url('assets/fonts/Fenotype - AlekRegular.otf');
+}
+
+@font-face {
+  font-family: 'AlekBold';
+  src: url('assets/fonts/Fenotype - AlekBold.otf');
 }

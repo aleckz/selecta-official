@@ -17,20 +17,21 @@ selecta.controller('TrackController', ["$resource", "$location", "$scope", "$win
   });
 
   $scope.next = function() {
-    console.log(nextsong);
-    test = FindSong.find({soundcloud_id: $scope.selected_song.id});
-    console.log(test);
-    test.$promise.then(function(song){
+    currentSong = FindSong.find({soundcloud_id: $scope.selected_song.id});
+    currentSong.$promise.then(function(song){
+      liked_status = song.liked_status;
       nextsong = song.soundcloud_id;
-      console.log(nextsong);
     }).then(function(){
+      if (liked_status) {
+        console.log(nextsong);
       $state.go('track', {songId: nextsong });
       $rootScope.$on('$stateChangeSuccess',function(event, toState, toParams, fromState, fromParams){
         $scope.songId = toParams.songId;
         $scope.play();
       });
-    });
-  };
+    }
+  });
+};
 
   $scope.play = function(){
     console.log('play is working');

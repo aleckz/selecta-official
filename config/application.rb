@@ -37,5 +37,7 @@ module SelectaOfficial
     Rails.application.config.assets.precompile += %w( bootstrap-sass-official/assets/fonts/bootstrap/glyphicons-halflings-regular.woff2 )
     Rails.application.config.assets.precompile += %w( bootstrap/glyphicons-halflings-regular.woff2 )
     config.active_record.raise_in_transactional_callbacks = true
+    config.assets.enabled = true
+    config.assets.paths << Rails.root.join('/app/assets/fonts')
   end
 end
