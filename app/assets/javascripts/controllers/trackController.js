@@ -79,6 +79,24 @@ selecta.controller('TrackController', ["$resource", "$location", "$scope", "$win
     $state.go('track', {songId: currentSongId });
   };
 
+ $scope.mute = function(){
+   song.toggleMute();
+ };
+
+ $scope.volumeUp = function(){
+   var volume = song.volume;
+   if (volume < 100) {
+     song.setVolume(volume + 10);
+   }
+ };
+
+ $scope.volumeDown = function(){
+   var volume = song.volume;
+   if (volume > 0) {
+     song.setVolume(volume - 10);
+   }
+ };
+
 
 
 }]);
