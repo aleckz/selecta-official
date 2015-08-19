@@ -32,3 +32,5 @@ User.find(2,3,4).each {|user| user.songs << Song.find_by(soundcloud_id:27580789)
 Song.find(2,3,4,5).each{|song| User.find(1).songs << song}
 Song.find(7,4,10).each{|song| User.find(3).songs << song}
 Song.find(8,9).each{|song| User.find(4).songs << song}
+
+
