@@ -3,7 +3,7 @@ feature "in Song find", js: true do
   scenario "image" do
     visit '/'
     fill_in "searchstring", with: "eminem"
-    click_on "Search"
+    click_on "find"
     click_on "Eminem - Without Me"
 
     expect(page).to have_css ('img[src*="https://i1.sndcdn.com/artworks-000015684337-kzwmxu-t500x500.jpg"]')
@@ -12,7 +12,7 @@ feature "in Song find", js: true do
   scenario "play button" do
     visit '/'
     fill_in "searchstring", with: "eminem"
-    click_on "Search"
+    click_on "find"
     click_on "Eminem - Without Me"
     click_on "Play"
 
@@ -24,7 +24,7 @@ feature "in Song find", js: true do
     visit '/'
     fill_in "searchstring", with: "eminem"
     # byebug
-    click_on "Search"
+    click_on "find"
     click_on "Eminem - Without Me"
     click_on "Pause"
 
@@ -40,7 +40,7 @@ feature "in Song find", js: true do
     fill_in 'Confirm Password', with: "password"
     click_on "Sign Up"
     fill_in "searchstring", with: "eminem"
-    click_on "Search"
+    click_on "find"
     click_on "Eminem - Without Me"
     click_on "Like"
 
@@ -51,7 +51,7 @@ feature "in Song find", js: true do
   scenario "next button" do
     visit '/'
     fill_in "searchstring", with: "eminem"
-    click_on "Search"
+    click_on "find"
     click_on "Eminem - Without Me"
     click_on "Next"
 

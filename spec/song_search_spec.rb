@@ -4,7 +4,7 @@ feature "Searching for songs", js: true do
   scenario "finding songs" do
     visit '/'
     fill_in "searchstring", with: "eminem"
-    click_on "Search"
+    click_on "find"
 
     expect(page).to have_content("Eminem - Without Me")
   end
@@ -23,7 +23,7 @@ feature "Searching for songs", js: true do
   scenario "finding title" do
     visit '/'
     fill_in "searchstring", with: "eminem"
-    click_on "Search"
+    click_on "find"
     click_on "Eminem - Without Me"
 
     expect(page).to have_content("Without Me")
