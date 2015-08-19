@@ -21,8 +21,8 @@ selecta.controller('TrackController', ["$resource", "$location", "$scope", "$win
 
   $scope.next = function() {
     var next = true;
-    test = FindSong.find({soundcloud_id: $scope.selected_song.id});
-    test.$promise.then(function(song){
+    sendSongToRails = FindSong.find({soundcloud_id: $scope.selected_song.id});
+    sendSongToRails.$promise.then(function(song){
       nextsong = song.soundcloud_id;
     }).then(function(){
       $state.go('track', {songId: nextsong });
