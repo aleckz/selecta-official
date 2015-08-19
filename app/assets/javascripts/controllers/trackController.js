@@ -6,7 +6,7 @@ currentSongId = '';
 selecta.controller('TrackController', ["$resource", "$location", "$scope", "$window", 'FindSong', 'SongsUser', "$stateParams","$timeout", "$state", "$rootScope",function($resource, $location, $scope, $window, FindSong, SongsUser, $stateParams, $timeout, $state, $rootScope){
   $scope.songId = $stateParams.songId;
   currentSongId = $scope.songId;
-  var nextsong = 'hello';
+  var nextsong = '';
 
 
 
@@ -17,10 +17,10 @@ selecta.controller('TrackController', ["$resource", "$location", "$scope", "$win
   SC.get("/tracks/" + $scope.songId, function(tracks){
     $scope.selected_song = tracks;
     $scope.$apply();
+    console.log(tracks);
   });
 
   $scope.next = function() {
-    console.log(nextsong);
     test = FindSong.find({soundcloud_id: $scope.selected_song.id});
     console.log(test);
     test.$promise.then(function(song){
