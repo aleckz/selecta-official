@@ -21,10 +21,10 @@ feature "Retreiving next song", js: true do
     Song.find(100,200,8,2).each {|song| alex.songs << song}
 
     visit '/'
-    click_link 'log in'
+    click_link 'Log in'
     fill_in 'Email', with: "salman@selecta.com"
-    fill_in 'Password', with: "123"
-    click_on "Log in"
+    fill_in 'password', with: "123"
+    click_button "Log in"
   end
 
   describe "User hits next after liking song" do

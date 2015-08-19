@@ -1,5 +1,5 @@
 selecta.controller('LikeHistoryController', ["$resource", "$scope", "UserLikes", "$stateParams", function($resource, $scope, UserLikes, $stateParams){
-  
+
   SC.initialize({
     client_id: SOUNDCLOUD_ID
   });
@@ -9,12 +9,6 @@ selecta.controller('LikeHistoryController', ["$resource", "$scope", "UserLikes",
   var userId = $stateParams.userId;
 
   var likeHistory = UserLikes.find({user: userId});
-  
-  // likeHistory.$promise.then(function(history){
-  //   history.songs.forEach(function(like){
-  //     likes_id_list.push(like.soundcloud_id)
-  //   });
-  // });
 
   likeHistory.$promise.then(function(history){
     history.songs.forEach(function(like){
@@ -24,12 +18,4 @@ selecta.controller('LikeHistoryController', ["$resource", "$scope", "UserLikes",
       });
     });
   });
-
-  // likes_id_list.forEach(function(id){
-  //   SC.get("/tracks/" + id, function(tracks) {
-  //     $scope.likes.push(tracks);
-  //     // $scope.$apply();
-  //   });
-  //   console.log($scope.likes)
-  // });
 }]);

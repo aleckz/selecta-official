@@ -1,9 +1,12 @@
 song = false;
 playing = false;
+currentSongId = '';
+
 
 selecta.controller('TrackController', ["$resource", "$location", "$scope", "$window", 'FindSong', 'SongsUser', "$stateParams","$timeout", "$state", "$rootScope",function($resource, $location, $scope, $window, FindSong, SongsUser, $stateParams, $timeout, $state, $rootScope){
   $scope.songId = $stateParams.songId;
-  var nextsong = 'hello';
+  currentSongId = $scope.songId;
+  var nextsong = '';
 
 
 
@@ -17,26 +20,29 @@ selecta.controller('TrackController', ["$resource", "$location", "$scope", "$win
   });
 
   $scope.next = function() {
-    console.log(nextsong);
+    var next = true;
     test = FindSong.find({soundcloud_id: $scope.selected_song.id});
-    console.log(test);
     test.$promise.then(function(song){
       nextsong = song.soundcloud_id;
-      console.log(nextsong);
     }).then(function(){
       $state.go('track', {songId: nextsong });
       $rootScope.$on('$stateChangeSuccess',function(event, toState, toParams, fromState, fromParams){
-        $scope.songId = toParams.songId;
-        $scope.play();
+        if (next) {
+          $scope.songId = toParams.songId;
+          currentSongId = $scope.songId;
+          $scope.play();
+          next = false;
+        }
       });
     });
   };
 
   $scope.play = function(){
-    console.log('play is working');
-  if (song) {
-    var temp = song;
-  }
+    $scope.songId = $stateParams.songId;
+    currentSongId = $scope.songId;
+    if (song) {
+      var temp = song;
+    }
     SC.stream("/tracks/" + $scope.songId,{onfinish: function(){ $scope.next();}}, function(sound){
       song = sound;
       if (temp) {
@@ -68,6 +74,28 @@ selecta.controller('TrackController', ["$resource", "$location", "$scope", "$win
   $scope.like = function(){
     SongsUser.create({soundcloud_id: $scope.songId});
   };
+
+  $scope.currentSong = function(){
+    $state.go('track', {songId: currentSongId });
+  };
+
+ $scope.mute = function(){
+   song.toggleMute();
+ };
+
+ $scope.volumeUp = function(){
+   var volume = song.volume;
+   if (volume < 100) {
+     song.setVolume(volume + 10);
+   }
+ };
+
+ $scope.volumeDown = function(){
+   var volume = song.volume;
+   if (volume > 0) {
+     song.setVolume(volume - 10);
+   }
+ };
 
 
 
