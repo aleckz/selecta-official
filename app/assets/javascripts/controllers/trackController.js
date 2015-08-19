@@ -17,34 +17,33 @@ selecta.controller('TrackController', ["$resource", "$location", "$scope", "$win
   SC.get("/tracks/" + $scope.songId, function(tracks){
     $scope.selected_song = tracks;
     $scope.$apply();
-    console.log(tracks);
   });
 
   $scope.next = function() {
+    var next = true;
     test = FindSong.find({soundcloud_id: $scope.selected_song.id});
-    console.log(test);
     test.$promise.then(function(song){
       nextsong = song.soundcloud_id;
-      console.log(nextsong);
     }).then(function(){
       $state.go('track', {songId: nextsong });
       $rootScope.$on('$stateChangeSuccess',function(event, toState, toParams, fromState, fromParams){
-        $scope.songId = toParams.songId;
-        currentSongId = $scope.songId;
-        $scope.play();
+        if (next) {
+          $scope.songId = toParams.songId;
+          currentSongId = $scope.songId;
+          $scope.play();
+          next = false;
+        }
       });
     });
   };
 
   $scope.play = function(){
-    console.log('play is working');
     $scope.songId = $stateParams.songId;
     currentSongId = $scope.songId;
     if (song) {
       var temp = song;
     }
     SC.stream("/tracks/" + $scope.songId,{onfinish: function(){ $scope.next();}}, function(sound){
-      console.log($scope.songId);
       song = sound;
       if (temp) {
         if (song.url != temp.url) {
