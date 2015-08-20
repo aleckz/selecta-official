@@ -9,7 +9,12 @@ selecta.controller("SongSearchController", ['$scope', '$resource', function($sco
   $scope.doSearch = function(){
     if ($scope.searchTerm !== '') {
       return SC.get('https://api.soundcloud.com/tracks', { q: $scope.searchTerm }, function(tracks) {
-        $scope.songs = tracks;
+        for (var i=0; i<tracks.length; i++) {
+          if ((tracks[i].streamable) === true) {
+            console.log("streamable true");
+            $scope.songs.push(tracks[i]);
+          }
+        }
         $scope.$apply();
       });
     }
