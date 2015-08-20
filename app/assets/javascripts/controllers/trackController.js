@@ -97,6 +97,15 @@ selecta.controller('TrackController', ["$resource", "$location", "$scope", "$win
    }
  };
 
+ $scope.skipBackward = function(){
+   var songPosition = song.onPosition;
+   console.log(song.onPosition());
+ };
+
+ $scope.skipForward = function(){
+
+ };
+
 
 
 }]);
