@@ -1,6 +1,5 @@
 <div ng-controller="SongSearchController">
   <div class="backgroundimageStyling">
-    <div class="layer"></div>
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
@@ -37,7 +36,7 @@
         </div>
       </div>
     <div class="container-fluid">
-      <div class="list-group">
+      <div class="list-group results">
         <ol ng-repeat="song in songs">
           <li class="list-group-item">
             <a ng-href="#/track/{{song.id}}" ng-click="clearList()">{{song.title}}</a>
