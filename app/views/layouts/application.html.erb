@@ -53,14 +53,25 @@
 </script>
 
 <script type="text/ng-template" id="home.html">
-    <div class="typer">
-      <h2 data-typer-targets="This is Music., Acoustic., Electronic., Soul., Jazz., Hip-Hop., Classical., Selecta Tune., Start Discovering...,">Selecta</h2>
-      <script>
-        $(function () {
-          $('[data-typer-targets]').typer();
-        });
-      </script>
-    </div>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="logo text-center">
+            <%= image_tag "selecta-logo.png" %>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="typer text-center">
+          <h2 data-typer-targets="This is Music., Acoustic., Electronic., Soul., Jazz., Hip-Hop., Classical., Selecta Tune., Start Discovering...,">Selecta.</h2>
+          <script>
+            $(function () {
+              $('[data-typer-targets]').typer();
+            });
+          </script>
+        </div>
+      </div>
+  </div>
 
 </script>
 
