@@ -6,4 +6,8 @@ $( document ).ready(function() {
     $("#likeHistory").click(function(){
       $("ol").empty();
     });
+
+    $("#currentSong").click(function(){
+      $("ol").empty();
+    });
 });
